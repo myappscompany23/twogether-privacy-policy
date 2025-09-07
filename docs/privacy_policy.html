@@ -1,83 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Privacy Policy for Twogether</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Twogether</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4a90e2;
+      --secondary-color: #50e3c2;
+      --bg-color: #f5f7fa;
+      --card-bg: #ffffff;
+      --text-color: #333;
+      --heading-color: #4a90e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeSlideIn 1s forwards;
+      animation-delay: 0.3s;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.9;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeSlideIn 1s forwards;
+      animation-delay: 0.6s;
+    }
+
+    main {
+      max-width: 900px;
+      margin: -4rem auto 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: transform 0.5s, opacity 0.5s, box-shadow 0.3s;
+    }
+
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .card:hover {
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    h2 {
+      color: var(--heading-color);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      border-left: 4px solid var(--secondary-color);
+      padding-left: 0.8rem;
+    }
+
+    h3 {
+      color: var(--primary-color);
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p, li {
+      margin-bottom: 0.6rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeSlideIn {
+      0% { opacity: 0; transform: translateY(-20px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      main {
+        margin: -3rem 1rem 2rem 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<h1>Privacy Policy for Twogether</h1>
-<p><strong>Effective Date:</strong> 06.06.2025 </p>
+  <header>
+    <h1>Privacy Policy for Twogether</h1>
+    <p>Effective Date: September 7, 2025</p>
+  </header>
 
-<p><strong>Twogether</strong> ("we", "our", or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application (“App”). Please read this policy carefully to understand our views and practices regarding your personal data.</p>
+  <main>
+    <div class="card">
+      <p>Twogether ("we", "our", or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application (“App”). Please read this policy carefully to understand our practices.</p>
+      <p>By using the App, you agree to the collection and use of information in accordance with this policy.</p>
+    </div>
 
-<h2>1. Information We Collect</h2>
+    <div class="card">
+      <h2>1. Information We Collect</h2>
+      <p>We collect several different types of information for various purposes to provide and improve our App for you.</p>
 
-<h3>a. Personal Information</h3>
-<p>We do not require you to provide personally identifiable information to use the App. However, if you voluntarily provide us with information (e.g., through customer support), we may collect it.</p>
+      <h3>a. Information You Provide to Us (Account & Purchases)</h3>
+      <ul>
+        <li><strong>Account Information:</strong> Email, username, and password via Firebase Authentication.</li>
+        <li><strong>User Content:</strong> Content you create in the App (events, plans, lists).</li>
+        <li><strong>Purchase History:</strong> In-app purchase details linked via Google Cloud Firestore.</li>
+      </ul>
 
-<h3>b. Usage and Device Information</h3>
-<p>We automatically collect certain information about your device and how you use the App, including but not limited to:</p>
-<ul>
-<li>Device type and model</li>
-<li>Operating system version</li>
-<li>Unique device identifiers</li>
-<li>IP address</li>
-<li>App usage data and interaction events</li>
-</ul>
+      <h3>b. Information Collected Automatically (Usage & Diagnostics)</h3>
+      <ul>
+        <li><strong>Usage Data:</strong> Device info, interactions, screens opened, features used.</li>
+        <li><strong>Diagnostics Data:</strong>
+          <ul>
+            <li>Crash Data (Firebase Crashlytics)</li>
+            <li>Performance Data (Firebase Performance Monitoring)</li>
+          </ul>
+        </li>
+      </ul>
 
-<h3>c. Analytics Data</h3>
-<p>We use <strong>Firebase Analytics</strong> to collect and analyze usage patterns to improve the App's functionality and user experience. Firebase Analytics collects information such as events, user engagement, and device data.</p>
+      <h3>c. Information from Third Parties (Advertising)</h3>
+      <ul>
+        <li><strong>Advertising Data:</strong> Ads served by Google Ads, governed by Google’s privacy policies.</li>
+      </ul>
+    </div>
 
-<h3>d. Advertising Data</h3>
-<p>We display ads served by <strong>Google Ads</strong> within the App. Google Ads may collect data about your interaction with ads, device information, and other identifiers to deliver personalized ads.</p>
+    <div class="card">
+      <h2>2. How We Use Your Information</h2>
+      <ul>
+        <li>To Provide and Maintain the App</li>
+        <li>To Improve the App</li>
+        <li>To Display Ads</li>
+        <li>To Communicate with You</li>
+      </ul>
+    </div>
 
-<h2>2. How We Use Your Information</h2>
+    <div class="card">
+      <h2>3. Legal Basis for Processing (For EEA Users)</h2>
+      <ul>
+        <li>Performance of a Contract</li>
+        <li>Legitimate Interests</li>
+        <li>Consent for personalized advertising</li>
+      </ul>
+    </div>
 
-<p>We use the collected data to:</p>
-<ul>
-<li>Provide, maintain, and improve the App and its features.</li>
-<li>Analyze usage trends to enhance user experience.</li>
-<li>Deliver personalized advertisements based on your interests.</li>
-<li>Respond to customer support inquiries.</li>
-<li>Comply with legal obligations.</li>
-</ul>
+    <div class="card">
+      <h2>4. Sharing Your Information</h2>
+      <ul>
+        <li>Service Providers (Firebase, Google Ads)</li>
+        <li>Legal Requirements</li>
+      </ul>
+    </div>
 
-<h2>3. Sharing Your Information</h2>
+    <div class="card">
+      <h2>5. Data Retention</h2>
+      <p>We retain your information only as long as necessary to comply with legal obligations, resolve disputes, and enforce policies.</p>
+    </div>
 
-<p>We do not sell your personal information. However, we may share data with third parties under the following circumstances:</p>
-<ul>
-<li><strong>Service Providers:</strong> We share data with service providers such as Firebase and Google Ads who help us operate and improve the App. These providers have their own privacy policies.</li>
-<li><strong>Legal Requirements:</strong> We may disclose information if required by law or to protect our rights.</li>
-</ul>
+    <div class="card">
+      <h2>6. Your Data Protection Rights</h2>
+      <ul>
+        <li>Access and Update via App settings</li>
+        <li>Opt-Out of Personalized Ads via Google Ad Settings or device settings</li>
+        <li>Request Deletion: <a href="mailto:contactmyappscompany23@gmail.com">contactmyappscompany23@gmail.com</a></li>
+      </ul>
+    </div>
 
-<h2>4. Your Choices and Rights</h2>
+    <div class="card">
+      <h2>7. Children’s Privacy</h2>
+      <p>Our App is suitable for ages 6 and over. We do not knowingly collect info from children under 13 without verified parental consent.</p>
+    </div>
 
-<ul>
-<li><strong>Opt-Out of Personalized Ads:</strong> You can opt out of personalized advertising by adjusting your device settings or through Google’s Ad Settings.</li>
-<li><strong>Disable Analytics:</strong> Some versions of the App may allow you to disable analytics tracking.</li>
-<li><strong>Access and Correction:</strong> Although we do not collect much personal data, if you request, we will provide access to any data we hold about you and correct inaccuracies.</li>
-</ul>
+    <div class="card">
+      <h2>8. International Transfers</h2>
+      <p>Your information may be transferred to computers outside your country. Appropriate safeguards are ensured.</p>
+    </div>
 
-<h2>5. Data Security</h2>
+    <div class="card">
+      <h2>9. Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy. Updates will be posted here with a revised Effective Date.</p>
+    </div>
 
-<p>We implement reasonable technical and organizational measures to protect your data from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure.</p>
+    <div class="card">
+      <h2>10. Contact Us</h2>
+      <p>For questions, contact us at: <a href="mailto:contactmyappscompany23@gmail.com">contactmyappscompany23@gmail.com</a></p>
+    </div>
+  </main>
 
-<h2>6. Children’s Privacy</h2>
+  <footer>
+    &copy; 2025 Twogether. All rights reserved.
+  </footer>
 
-<p>Our App is not intended for children under 13. We do not knowingly collect personal information from children under this age. If you believe we have inadvertently collected such data, please contact us to request deletion.</p>
+  <script>
+    // Fade-in on scroll for cards
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
 
-<h2>7. International Data Transfers</h2>
-
-<p>Since we operate globally, your data may be transferred and processed outside of your country of residence. We take steps to ensure such transfers comply with applicable data protection laws.</p>
-
-<h2>8. Changes to This Privacy Policy</h2>
-
-<p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We encourage you to review this page periodically.</p>
-
-<h2>9. Contact Us</h2>
-
-<p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
-<p>contactmyappscompany23@gmail.com</p>
+    cards.forEach(card => observer.observe(card));
+  </script>
 </body>
 </html>
