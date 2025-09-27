@@ -15,11 +15,7 @@
       --heading-color: #4a90e2;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * {box-sizing: border-box;margin: 0;padding: 0;}
 
     body {
       font-family: 'Inter', sans-serif;
@@ -35,25 +31,32 @@
       text-align: center;
       padding: 3rem 1rem;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      position: relative;
+    }
+
+    .language-switch {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: white;
+      color: var(--primary-color);
+      border: none;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
     }
 
     header h1 {
       font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeSlideIn 1s forwards;
-      animation-delay: 0.3s;
     }
 
     header p {
       font-size: 1rem;
       opacity: 0.9;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeSlideIn 1s forwards;
-      animation-delay: 0.6s;
     }
 
     main {
@@ -68,18 +71,6 @@
       padding: 2rem;
       margin-bottom: 2rem;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      transform: translateY(50px);
-      opacity: 0;
-      transition: transform 0.5s, opacity 0.5s, box-shadow 0.3s;
-    }
-
-    .card.visible {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .card:hover {
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
     }
 
     h2 {
@@ -97,14 +88,9 @@
       margin-bottom: 0.5rem;
     }
 
-    p, li {
-      margin-bottom: 0.6rem;
-    }
+    p, li {margin-bottom: 0.6rem;}
 
-    ul {
-      padding-left: 1.2rem;
-      margin-bottom: 0.6rem;
-    }
+    ul {padding-left: 1.2rem;margin-bottom: 0.6rem;}
 
     footer {
       text-align: center;
@@ -119,125 +105,230 @@
       font-weight: 500;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover {text-decoration: underline;}
 
-    @keyframes fadeSlideIn {
-      0% { opacity: 0; transform: translateY(-20px);}
-      100% { opacity: 1; transform: translateY(0);}
-    }
+    .hidden {display: none;}
 
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.6rem;
-      }
-
-      main {
-        margin: -3rem 1rem 2rem 1rem;
-      }
+      header h1 {font-size: 1.6rem;}
+      main {margin: -3rem 1rem 2rem 1rem;}
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Privacy Policy for Twogether</h1>
-    <p>Effective Date: September 7, 2025</p>
+    <button class="language-switch" id="langSwitch">Türkçe</button>
+    <h1>Privacy Policy / Gizlilik Politikası</h1>
+    <p>Effective Date / Yürürlük Tarihi: September 7, 2025</p>
   </header>
 
   <main>
-    <div class="card">
-      <p>Twogether ("we", "our", or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application (“App”). Please read this policy carefully to understand our practices.</p>
-      <p>By using the App, you agree to the collection and use of information in accordance with this policy.</p>
+    <!-- English Version -->
+    <div id="english">
+      <div class="card">
+        <p>Twogether ("we", "our", or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application (“App”). Please read this policy carefully to understand our practices.</p>
+        <p>By using the App, you agree to the collection and use of information in accordance with this policy and our in-app purchase terms.</p>
+      </div>
+
+      <div class="card">
+        <h2>1. Information We Collect</h2>
+        <p>We collect several different types of information for various purposes to provide and improve our App for you.</p>
+        <h3>a. Information You Provide to Us (Account & Purchases)</h3>
+        <ul>
+          <li><strong>Account Information:</strong> Email, username, and password via Firebase Authentication.</li>
+          <li><strong>User Content:</strong> Content you create in the App.</li>
+          <li><strong>Purchase History:</strong> In-app purchase details linked via Google Cloud Firestore.</li>
+        </ul>
+        <h3>b. Information Collected Automatically (Usage & Diagnostics)</h3>
+        <ul>
+          <li><strong>Usage Data:</strong> Device info, interactions, screens opened.</li>
+          <li><strong>Diagnostics Data:</strong>
+            <ul>
+              <li>Crash Data (Firebase Crashlytics)</li>
+              <li>Performance Data (Firebase Performance Monitoring)</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>c. Information from Third Parties (Advertising)</h3>
+        <ul>
+          <li><strong>Advertising Data:</strong> Ads served by Google Ads.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>2. How We Use Your Information</h2>
+        <ul>
+          <li>To Provide and Maintain the App</li>
+          <li>To Improve the App</li>
+          <li>To Display Ads</li>
+          <li>To Communicate with You</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>3. Legal Basis for Processing (For EEA Users)</h2>
+        <ul>
+          <li>Performance of a Contract</li>
+          <li>Legitimate Interests</li>
+          <li>Consent for personalized advertising</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>4. Sharing Your Information</h2>
+        <ul>
+          <li>Service Providers (Firebase, Google Ads)</li>
+          <li>Legal Requirements</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>5. Data Retention</h2>
+        <p>We retain your information only as long as necessary to comply with legal obligations, resolve disputes, and enforce policies.</p>
+      </div>
+
+      <div class="card">
+        <h2>6. Your Data Protection Rights</h2>
+        <ul>
+          <li>Access and Update via App settings</li>
+          <li>Opt-Out of Personalized Ads via Google Ad Settings or device settings</li>
+          <li>Request Deletion: <a href="mailto:contactmyappscompany23@gmail.com">contactmyappscompany23@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>7. Children’s Privacy</h2>
+        <p>Our App is suitable for ages 6 and over. We do not knowingly collect info from children under 13 without verified parental consent.</p>
+      </div>
+
+      <div class="card">
+        <h2>8. International Transfers</h2>
+        <p>Your information may be transferred to computers outside your country. Appropriate safeguards are ensured.</p>
+      </div>
+
+      <div class="card">
+        <h2>9. In-App Purchases</h2>
+        <p>Our App offers consumable in-app purchases (such as coins or credits). These purchases are processed securely through Google Play or the Apple App Store. Consumable in-app purchases are non-refundable, except where required by law or the respective store’s policies.</p>
+      </div>
+
+      <div class="card">
+        <h2>10. Guest Accounts</h2>
+        <p>You may use the App as a guest without creating an account. However, if you make in-app purchases as a guest, these purchases may be tied to your device and may not be transferable to another device. For your security and to ensure your purchases are safely stored, we strongly recommend creating an account before making in-app purchases.</p>
+      </div>
+
+      <div class="card">
+        <h2>11. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy. Updates will be posted here with a revised Effective Date.</p>
+      </div>
+
+      <div class="card">
+        <h2>12. Contact Us</h2>
+        <p>For questions, contact us at: <a href="mailto:contactmyappscompany23@gmail.com">contactmyappscompany23@gmail.com</a></p>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>1. Information We Collect</h2>
-      <p>We collect several different types of information for various purposes to provide and improve our App for you.</p>
+    <!-- Turkish Version -->
+    <div id="turkish" class="hidden">
+      <div class="card">
+        <p>Twogether (“biz”) gizliliğinize saygı duyar ve kişisel bilgilerinizi korumaya kararlıdır. Bu Gizlilik Politikası, mobil uygulamamızı (“Uygulama”) kullanırken bilgilerinizi nasıl topladığımızı, kullandığımızı, açıkladığımızı ve koruduğumuzu açıklar.</p>
+        <p>Uygulamayı kullanarak bu Gizlilik Politikası’nı ve uygulama içi satın alma koşullarını kabul etmiş olursunuz.</p>
+      </div>
 
-      <h3>a. Information You Provide to Us (Account & Purchases)</h3>
-      <ul>
-        <li><strong>Account Information:</strong> Email, username, and password via Firebase Authentication.</li>
-        <li><strong>User Content:</strong> Content you create in the App (events, plans, lists).</li>
-        <li><strong>Purchase History:</strong> In-app purchase details linked via Google Cloud Firestore.</li>
-      </ul>
+      <div class="card">
+        <h2>1. Topladığımız Bilgiler</h2>
+        <p>Uygulamayı geliştirmek ve size hizmet sunmak için çeşitli bilgiler toplarız.</p>
+        <h3>a. Kullanıcının Bize Sağladığı Bilgiler (Hesap & Satın Alımlar)</h3>
+        <ul>
+          <li><strong>Hesap Bilgileri:</strong> E-posta, kullanıcı adı ve parola (Firebase Authentication).</li>
+          <li><strong>Kullanıcı İçeriği:</strong> Uygulama içinde oluşturduğunuz içerikler.</li>
+          <li><strong>Satın Alma Geçmişi:</strong> Google Cloud Firestore aracılığıyla bağlanan uygulama içi satın alma verileri.</li>
+        </ul>
+        <h3>b. Otomatik Olarak Toplanan Bilgiler (Kullanım & Tanılama)</h3>
+        <ul>
+          <li><strong>Kullanım Verileri:</strong> Cihaz bilgisi, etkileşimler, açılan ekranlar.</li>
+          <li><strong>Tanılama Verileri:</strong>
+            <ul>
+              <li>Çökme verileri (Firebase Crashlytics)</li>
+              <li>Performans verileri (Firebase Performance Monitoring)</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>c. Üçüncü Taraflardan Alınan Bilgiler (Reklam)</h3>
+        <ul>
+          <li><strong>Reklam Verileri:</strong> Google Ads tarafından gösterilen reklamlar.</li>
+        </ul>
+      </div>
 
-      <h3>b. Information Collected Automatically (Usage & Diagnostics)</h3>
-      <ul>
-        <li><strong>Usage Data:</strong> Device info, interactions, screens opened, features used.</li>
-        <li><strong>Diagnostics Data:</strong>
-          <ul>
-            <li>Crash Data (Firebase Crashlytics)</li>
-            <li>Performance Data (Firebase Performance Monitoring)</li>
-          </ul>
-        </li>
-      </ul>
+      <div class="card">
+        <h2>2. Bilgilerinizi Kullanım Amacımız</h2>
+        <ul>
+          <li>Uygulamayı sunmak ve sürdürmek</li>
+          <li>Uygulamayı geliştirmek</li>
+          <li>Reklam göstermek</li>
+          <li>Sizinle iletişim kurmak</li>
+        </ul>
+      </div>
 
-      <h3>c. Information from Third Parties (Advertising)</h3>
-      <ul>
-        <li><strong>Advertising Data:</strong> Ads served by Google Ads, governed by Google’s privacy policies.</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h2>3. İşleme Hukuki Dayanağı (AB Kullanıcıları İçin)</h2>
+        <ul>
+          <li>Sözleşmenin ifası</li>
+          <li>Meşru menfaatler</li>
+          <li>Kişiselleştirilmiş reklam için onay</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h2>2. How We Use Your Information</h2>
-      <ul>
-        <li>To Provide and Maintain the App</li>
-        <li>To Improve the App</li>
-        <li>To Display Ads</li>
-        <li>To Communicate with You</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h2>4. Bilgilerin Paylaşılması</h2>
+        <ul>
+          <li>Hizmet Sağlayıcılar (Firebase, Google Ads)</li>
+          <li>Yasal zorunluluklar</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h2>3. Legal Basis for Processing (For EEA Users)</h2>
-      <ul>
-        <li>Performance of a Contract</li>
-        <li>Legitimate Interests</li>
-        <li>Consent for personalized advertising</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h2>5. Veri Saklama</h2>
+        <p>Bilgilerinizi yalnızca yasal yükümlülüklerimizi yerine getirmek, uyuşmazlıkları çözmek ve politikalarımızı uygulamak için gerektiği süre boyunca saklarız.</p>
+      </div>
 
-    <div class="card">
-      <h2>4. Sharing Your Information</h2>
-      <ul>
-        <li>Service Providers (Firebase, Google Ads)</li>
-        <li>Legal Requirements</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h2>6. Veri Koruma Haklarınız</h2>
+        <ul>
+          <li>Uygulama ayarlarından erişim ve güncelleme</li>
+          <li>Kişiselleştirilmiş reklamlardan çıkma</li>
+          <li>Silme talebi: <a href="mailto:contactmyappscompany23@gmail.com">contactmyappscompany23@gmail.com</a></li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h2>5. Data Retention</h2>
-      <p>We retain your information only as long as necessary to comply with legal obligations, resolve disputes, and enforce policies.</p>
-    </div>
+      <div class="card">
+        <h2>7. Çocukların Gizliliği</h2>
+        <p>Uygulamamız 6 yaş ve üzeri kullanıcılar için uygundur. 13 yaşın altındaki çocuklardan ebeveyn onayı olmadan bilerek bilgi toplamıyoruz.</p>
+      </div>
 
-    <div class="card">
-      <h2>6. Your Data Protection Rights</h2>
-      <ul>
-        <li>Access and Update via App settings</li>
-        <li>Opt-Out of Personalized Ads via Google Ad Settings or device settings</li>
-        <li>Request Deletion: <a href="mailto:contactmyappscompany23@gmail.com">contactmyappscompany23@gmail.com</a></li>
-      </ul>
-    </div>
+      <div class="card">
+        <h2>8. Uluslararası Aktarımlar</h2>
+        <p>Bilgileriniz, ülkeniz dışındaki sunuculara aktarılabilir. Uygun güvenlik önlemleri alınmaktadır.</p>
+      </div>
 
-    <div class="card">
-      <h2>7. Children’s Privacy</h2>
-      <p>Our App is suitable for ages 6 and over. We do not knowingly collect info from children under 13 without verified parental consent.</p>
-    </div>
+      <div class="card">
+        <h2>9. Uygulama İçi Satın Alımlar</h2>
+        <p>Uygulamamız tüketilebilir uygulama içi satın alımlar sunmaktadır. Bu satın alımlar Google Play veya Apple App Store üzerinden güvenli bir şekilde gerçekleştirilir. Tüketilebilir uygulama içi satın alımlar iade edilmez, yasal zorunluluklar veya ilgili mağazaların politikaları dışında.</p>
+      </div>
 
-    <div class="card">
-      <h2>8. International Transfers</h2>
-      <p>Your information may be transferred to computers outside your country. Appropriate safeguards are ensured.</p>
-    </div>
+      <div class="card">
+        <h2>10. Misafir Hesaplar</h2>
+        <p>Uygulamayı hesap oluşturmadan misafir olarak kullanabilirsiniz. Ancak misafir olarak uygulama içi satın alma yaparsanız bu satın alımlar cihazınıza bağlı olabilir ve başka bir cihaza aktarılamayabilir. Satın alımlarınızın güvenliği için uygulama içi satın alma yapmadan önce bir hesap oluşturmanızı önemle tavsiye ederiz.</p>
+      </div>
 
-    <div class="card">
-      <h2>9. Changes to This Privacy Policy</h2>
-      <p>We may update this Privacy Policy. Updates will be posted here with a revised Effective Date.</p>
-    </div>
+      <div class="card">
+        <h2>11. Bu Gizlilik Politikasındaki Değişiklikler</h2>
+        <p>Bu Gizlilik Politikası’nı güncelleyebiliriz. Güncellenmiş hâli bu sayfada, yeni yürürlük tarihiyle birlikte yayımlanacaktır.</p>
+      </div>
 
-    <div class="card">
-      <h2>10. Contact Us</h2>
-      <p>For questions, contact us at: <a href="mailto:contactmyappscompany23@gmail.com">contactmyappscompany23@gmail.com</a></p>
+      <div class="card">
+        <h2>12. İletişim</h2>
+        <p>Sorularınız için bizimle iletişime geçebilirsiniz: <a href="mailto:contactmyappscompany23@gmail.com">contactmyappscompany23@gmail.com</a></p>
+      </div>
     </div>
   </main>
 
@@ -246,17 +337,24 @@
   </footer>
 
   <script>
-    // Fade-in on scroll for cards
-    const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
+    const langSwitch = document.getElementById('langSwitch');
+    const englishDiv = document.getElementById('english');
+    const turkishDiv = document.getElementById('turkish');
+    let currentLang = 'en';
 
-    cards.forEach(card => observer.observe(card));
+    langSwitch.addEventListener('click', () => {
+      if (currentLang === 'en') {
+        englishDiv.classList.add('hidden');
+        turkishDiv.classList.remove('hidden');
+        langSwitch.textContent = 'English';
+        currentLang = 'tr';
+      } else {
+        englishDiv.classList.remove('hidden');
+        turkishDiv.classList.add('hidden');
+        langSwitch.textContent = 'Türkçe';
+        currentLang = 'en';
+      }
+    });
   </script>
 </body>
 </html>
