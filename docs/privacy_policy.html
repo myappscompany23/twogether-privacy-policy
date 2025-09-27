@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twogether - Gizlilik Politikası</title>
+    <title>Twogether - Gizlilik Politikası ve Kullanım Koşulları</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #8a2be2;
-            --secondary: #ff6b6b;
-            --dark: #2d3047;
-            --light: #f8f9fa;
-            --gray: #6c757d;
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --accent: #fd79a8;
+            --light: #f7f7f7;
+            --dark: #2d3436;
+            --gray: #636e72;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --error: #d63031;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
             --transition: all 0.3s ease;
-            --shadow: 0 10px 20px rgba(0,0,0,0.1);
-            --shadow-hover: 0 15px 30px rgba(0,0,0,0.15);
         }
         
         * {
@@ -25,346 +30,571 @@
         
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
             color: var(--dark);
             line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
         }
         
         header {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 3rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            flex-wrap: wrap;
         }
         
         .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
             display: flex;
             align-items: center;
+            gap: 15px;
         }
         
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        .language-switch {
+        .logo-icon {
             background: var(--primary);
             color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .logo-text h1 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .language-toggle {
+            background: var(--light);
+            border-radius: 30px;
+            padding: 8px;
+            display: flex;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .lang-btn {
+            padding: 10px 20px;
             border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
+            background: transparent;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            box-shadow: var(--shadow);
+            gap: 8px;
         }
         
-        .language-switch:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-            background: #7a1fd2;
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
         }
         
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--dark);
-            font-size: 2.5rem;
-        }
-        
-        .cards-container {
+        .content-wrapper {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
         
-        .card {
+        @media (max-width: 900px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .policy-card, .terms-card {
             background: white;
-            border-radius: 15px;
-            padding: 2rem;
+            border-radius: var(--radius);
+            padding: 30px;
             box-shadow: var(--shadow);
+            margin-bottom: 30px;
             transition: var(--transition);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s forwards;
         }
         
-        .card:hover {
+        .policy-card:hover, .terms-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         
-        .card h2 {
+        h2 {
             color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+            font-size: 24px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
         }
         
-        .card h2 i {
-            font-size: 1.2rem;
+        h3 {
+            color: var(--dark);
+            margin: 25px 0 15px;
+            font-size: 20px;
         }
         
-        .card p {
-            margin-bottom: 1rem;
+        p {
+            margin-bottom: 15px;
             color: var(--gray);
         }
         
-        .card ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
         }
         
-        .card li {
-            margin-bottom: 0.5rem;
+        li {
+            margin-bottom: 10px;
             color: var(--gray);
+        }
+        
+        .highlight {
+            background: rgba(108, 92, 231, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .email-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: var(--transition);
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+            transform: scale(1.05);
         }
         
         footer {
             text-align: center;
-            margin-top: 3rem;
-            padding: 2rem 0;
+            margin-top: 50px;
+            padding: 20px;
             color: var(--gray);
-            border-top: 1px solid rgba(0,0,0,0.1);
+            font-size: 14px;
         }
         
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .language-content {
+            display: none;
         }
         
-        /* Delay animations for each card */
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(5) { animation-delay: 0.5s; }
-        .card:nth-child(6) { animation-delay: 0.6s; }
-        .card:nth-child(7) { animation-delay: 0.7s; }
-        .card:nth-child(8) { animation-delay: 0.8s; }
-        .card:nth-child(9) { animation-delay: 0.9s; }
-        .card:nth-child(10) { animation-delay: 1s; }
-        .card:nth-child(11) { animation-delay: 1.1s; }
-        .card:nth-child(12) { animation-delay: 1.2s; }
+        .language-content.active {
+            display: block;
+        }
         
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            header {
-                flex-direction: column;
-                gap: 1rem;
-            }
+        .section-number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <a href="#" class="logo">Two<span>gether</span></a>
-            <button class="language-switch" id="languageSwitch">
-                <span>EN</span>
-            </button>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Twogether</h1>
+                    <p>Privacy Policy & Terms of Service</p>
+                </div>
+            </div>
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="tr">
+                    <i class="fas fa-flag"></i> Türkçe
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <i class="fas fa-flag-usa"></i> English
+                </button>
+            </div>
         </header>
         
-        <h1 id="pageTitle">Gizlilik Politikası</h1>
-        
-        <div class="cards-container">
-            <div class="card">
-                <h2><i>📋</i> <span class="tr">Gizlilik Politikası</span><span class="en" style="display:none;">Privacy Policy</span></h2>
-                <p class="tr">Twogether ("biz", "uygulamamız") gizliliğinize saygı duyar ve kişisel bilgilerinizi korumayı taahhüt eder. Bu Gizlilik Politikası, uygulamamızı ("Uygulama") kullanırken bilgilerinizi nasıl topladığımızı, kullandığımızı, açıkladığımızı ve koruduğumuzu açıklar.</p>
-                <p class="en" style="display:none;">Twogether ("we", "our app") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our application ("App").</p>
-                <p class="tr">Uygulamayı kullanarak bu politikada açıklanan bilgilerin toplanmasını ve kullanılmasını kabul etmiş olursunuz.</p>
-                <p class="en" style="display:none;">By using the App, you consent to the collection and use of information as described in this policy.</p>
-            </div>
-            
-            <div class="card">
-                <h2><i>📊</i> <span class="tr">Topladığımız Bilgiler</span><span class="en" style="display:none;">Information We Collect</span></h2>
-                <p class="tr">Uygulamayı geliştirmek ve size hizmet sunmak için çeşitli bilgiler toplarız.</p>
-                <p class="en" style="display:none;">We collect various information to develop the App and provide services to you.</p>
+        <div class="content-wrapper">
+            <!-- Gizlilik Politikası -->
+            <div class="policy-card">
+                <!-- Türkçe İçerik -->
+                <div class="language-content active" id="policy-tr">
+                    <h2><i class="fas fa-shield-alt"></i> Gizlilik Politikası</h2>
+                    
+                    <p><strong>Twogether</strong> ("biz", "uygulamamız") gizliliğinize saygı duyar ve kişisel bilgilerinizi korumayı taahhüt eder. Bu Gizlilik Politikası, uygulamamızı ("Uygulama") kullanırken bilgilerinizi nasıl topladığımızı, kullandığımızı, açıkladığımızı ve koruduğumuzu açıklar.</p>
+                    
+                    <p>Uygulamayı kullanarak bu politikada açıklanan bilgilerin toplanmasını ve kullanılmasını kabul etmiş olursunuz.</p>
+                    
+                    <h3><span class="section-number">1</span> Topladığımız Bilgiler</h3>
+                    <p>Uygulamayı geliştirmek ve size hizmet sunmak için çeşitli bilgiler toplarız.</p>
+                    
+                    <h4>a. Kullanıcının Bize Sağladığı Bilgiler (Hesap & Satın Alımlar)</h4>
+                    <ul>
+                        <li><strong>Hesap Bilgileri:</strong> E-posta, kullanıcı adı ve parola (Firebase Authentication).</li>
+                        <li><strong>Kullanıcı İçeriği:</strong> Uygulama içinde oluşturduğunuz içerikler.</li>
+                        <li><strong>Satın Alma Geçmişi:</strong> Google Cloud Firestore aracılığıyla bağlanan uygulama içi satın alma verileri.</li>
+                    </ul>
+                    
+                    <h4>b. Otomatik Olarak Toplanan Bilgiler (Kullanım & Tanılama)</h4>
+                    <ul>
+                        <li><strong>Kullanım Verileri:</strong> Cihaz bilgisi, etkileşimler, açılan ekranlar, işletim sistemi sürümü, cihaz tanımlayıcıları ve IP adresi.</li>
+                        <li><strong>Tanılama Verileri:</strong>
+                            <ul>
+                                <li>Çökme verileri (Firebase Crashlytics)</li>
+                                <li>Performans verileri (Firebase Performance Monitoring)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>c. Üçüncü Taraflardan Alınan Bilgiler (Reklam)</h4>
+                    <ul>
+                        <li><strong>Reklam Verileri:</strong> Google Ads tarafından gösterilen reklamlar.</li>
+                    </ul>
+                    
+                    <h3><span class="section-number">2</span> Bilgilerinizi Kullanım Amacımız</h3>
+                    <ul>
+                        <li>Uygulamayı sunmak ve sürdürmek</li>
+                        <li>Uygulamayı geliştirmek</li>
+                        <li>Reklam göstermek</li>
+                        <li>Sizinle iletişim kurmak</li>
+                    </ul>
+                    
+                    <h3><span class="section-number">3</span> İşleme Hukuki Dayanağı (AB Kullanıcıları İçin)</h3>
+                    <ul>
+                        <li>Sözleşmenin ifası</li>
+                        <li>Meşru menfaatler</li>
+                        <li>Kişiselleştirilmiş reklam için onay</li>
+                    </ul>
+                    
+                    <h3><span class="section-number">4</span> Bilgilerin Paylaşılması</h3>
+                    <ul>
+                        <li>Hizmet Sağlayıcılar (Firebase, Google Ads)</li>
+                        <li>Yasal zorunluluklar</li>
+                    </ul>
+                    
+                    <h3><span class="section-number">5</span> Veri Saklama</h3>
+                    <p>Bilgilerinizi yalnızca yasal yükümlülüklerimizi yerine getirmek, uyuşmazlıkları çözmek ve politikalarımızı uygulamak için gerektiği süre boyunca saklarız.</p>
+                    
+                    <h3><span class="section-number">6</span> Veri Koruma Haklarınız</h3>
+                    <p>Bilgilerinizi korumak için Firebase tarafından sağlanan endüstri standardı güvenlik uygulamalarını kullanırız. Ancak, hiçbir çevrimiçi hizmet %100 güvenli değildir. Uygulamayı kullanarak bu riski kabul etmiş sayılırsınız.</p>
+                    <ul>
+                        <li>Kişiselleştirilmiş reklamları cihaz ayarlarından veya Google Reklam Ayarlarından devre dışı bırakabilirsiniz.</li>
+                        <li><strong>contactmyappscompany23@gmail.com</strong> adresinden bize ulaşarak verilerinize erişebilir veya sildirebilirsiniz.</li>
+                    </ul>
+                    
+                    <h3><span class="section-number">7</span> Çocukların Gizliliği</h3>
+                    <p>Uygulamamız 6 yaş ve üzeri kullanıcılar için uygundur.</p>
+                    
+                    <h3><span class="section-number">8</span> Uluslararası Aktarımlar</h3>
+                    <p>Bilgileriniz, ülkeniz dışındaki sunuculara aktarılabilir. Uygun güvenlik önlemleri alınmaktadır.</p>
+                    
+                    <h3><span class="section-number">9</span> Uygulama İçi Satın Alımlar ve İade Politikası</h3>
+                    <p>Uygulamamız tüketilebilir uygulama içi satın alımlar sunmaktadır. Bu satın alımlar Google Play veya Apple App Store üzerinden güvenli bir şekilde gerçekleştirilir. Tüketilebilir uygulama içi satın alımlar iade edilmez, yasal zorunluluklar veya ilgili mağazaların politikaları dışında.</p>
+                    
+                    <h3><span class="section-number">10</span> Misafir Hesaplar</h3>
+                    <p>Uygulamayı hesap oluşturmadan misafir olarak kullanabilirsiniz. Ancak misafir olarak uygulama içi satın alma yaparsanız bu satın alımlar cihazınıza bağlı olabilir ve başka bir cihaza aktarılamayabilir. Satın alımlarınızın güvenliği için uygulama içi satın alma yapmadan önce bir hesap oluşturmanızı önemle tavsiye ederiz.</p>
+                    
+                    <h3><span class="section-number">11</span> Bu Gizlilik Politikasındaki Değişiklikler</h3>
+                    <p>Bu Gizlilik Politikası'nı güncelleyebiliriz. Güncellenmiş hâli bu sayfada, yeni yürürlük tarihiyle birlikte yayımlanacaktır.</p>
+                    
+                    <div class="contact-info">
+                        <h3><i class="fas fa-envelope"></i> İletişim</h3>
+                        <p>Sorularınız için bizimle iletişime geçebilirsiniz:</p>
+                        <a href="mailto:contactmyappscompany23@gmail.com" class="email-link">contactmyappscompany23@gmail.com</a>
+                    </div>
+                </div>
                 
-                <h3 class="tr">a. Kullanıcının Bize Sağladığı Bilgiler (Hesap & Satın Alımlar)</h3>
-                <h3 class="en" style="display:none;">a. Information You Provide to Us (Account & Purchases)</h3>
-                <ul>
-                    <li class="tr">Hesap Bilgileri: E-posta, kullanıcı adı ve parola (Firebase Authentication).</li>
-                    <li class="en" style="display:none;">Account Information: Email, username, and password (Firebase Authentication).</li>
-                    <li class="tr">Kullanıcı İçeriği: Uygulama içinde oluşturduğunuz içerikler.</li>
-                    <li class="en" style="display:none;">User Content: Content you create within the App.</li>
-                    <li class="tr">Satın Alma Geçmişi: Google Cloud Firestore aracılığıyla bağlanan uygulama içi satın alma verileri.</li>
-                    <li class="en" style="display:none;">Purchase History: In-app purchase data connected via Google Cloud Firestore.</li>
-                </ul>
+                <!-- İngilizce İçerik -->
+                <div class="language-content" id="policy-en">
+                    <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
+                    
+                    <p><strong>Twogether</strong> ("we", "our app") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our application ("the App").</p>
+                    
+                    <p>By using the App, you agree to the collection and use of information as described in this policy.</p>
+                    
+                    <h3><span class="section-number">1</span> Information We Collect</h3>
+                    <p>We collect various information to develop the App and provide services to you.</p>
+                    
+                    <h4>a. Information Provided by the User (Account & Purchases)</h4>
+                    <ul>
+                        <li><strong>Account Information:</strong> Email, username, and password (Firebase Authentication).</li>
+                        <li><strong>User Content:</strong> Content you create within the App.</li>
+                        <li><strong>Purchase History:</strong> In-app purchase data linked via Google Cloud Firestore.</li>
+                    </ul>
+                    
+                    <h4>b. Automatically Collected Information (Usage & Diagnostics)</h4>
+                    <ul>
+                        <li><strong>Usage Data:</strong> Device information, interactions, screens opened, operating system version, device identifiers, and IP address.</li>
+                        <li><strong>Diagnostic Data:</strong>
+                            <ul>
+                                <li>Crash data (Firebase Crashlytics)</li>
+                                <li>Performance data (Firebase Performance Monitoring)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>c. Information from Third Parties (Advertising)</h4>
+                    <ul>
+                        <li><strong>Advertising Data:</strong> Ads displayed by Google Ads.</li>
+                    </ul>
+                    
+                    <h3><span class="section-number">2</span> How We Use Your Information</h3>
+                    <ul>
+                        <li>To provide and maintain the App</li>
+                        <li>To improve the App</li>
+                        <li>To display advertisements</li>
+                        <li>To communicate with you</li>
+                    </ul>
+                    
+                    <h3><span class="section-number">3</span> Legal Basis for Processing (For EU Users)</h3>
+                    <ul>
+                        <li>Performance of a contract</li>
+                        <li>Legitimate interests</li>
+                        <li>Consent for personalized advertising</li>
+                    </ul>
+                    
+                    <h3><span class="section-number">4</span> Sharing of Information</h3>
+                    <ul>
+                        <li>Service Providers (Firebase, Google Ads)</li>
+                        <li>Legal requirements</li>
+                    </ul>
+                    
+                    <h3><span class="section-number">5</span> Data Retention</h3>
+                    <p>We retain your information only for as long as necessary to fulfill our legal obligations, resolve disputes, and enforce our policies.</p>
+                    
+                    <h3><span class="section-number">6</span> Your Data Protection Rights</h3>
+                    <p>We use industry-standard security practices provided by Firebase to protect your information. However, no online service is 100% secure. By using the App, you acknowledge and accept this risk.</p>
+                    <ul>
+                        <li>You can disable personalized ads from your device settings or Google Ads Settings.</li>
+                        <li>You can access or request deletion of your data by contacting us at <strong>contactmyappscompany23@gmail.com</strong>.</li>
+                    </ul>
+                    
+                    <h3><span class="section-number">7</span> Children's Privacy</h3>
+                    <p>Our App is suitable for users aged 6 and above.</p>
+                    
+                    <h3><span class="section-number">8</span> International Transfers</h3>
+                    <p>Your information may be transferred to servers located outside your country. Appropriate security measures are taken.</p>
+                    
+                    <h3><span class="section-number">9</span> In-App Purchases and Refund Policy</h3>
+                    <p>Our App offers consumable in-app purchases. These purchases are made securely through Google Play or Apple App Store. Consumable in-app purchases are non-refundable, except as required by law or the policies of the respective stores.</p>
+                    
+                    <h3><span class="section-number">10</span> Guest Accounts</h3>
+                    <p>You can use the App as a guest without creating an account. However, if you make in-app purchases as a guest, these purchases may be tied to your device and may not be transferable to another device. For the security of your purchases, we strongly recommend creating an account before making in-app purchases.</p>
+                    
+                    <h3><span class="section-number">11</span> Changes to this Privacy Policy</h3>
+                    <p>We may update this Privacy Policy. The updated version will be posted on this page with the new effective date.</p>
+                    
+                    <div class="contact-info">
+                        <h3><i class="fas fa-envelope"></i> Contact</h3>
+                        <p>If you have any questions, you can contact us at:</p>
+                        <a href="mailto:contactmyappscompany23@gmail.com" class="email-link">contactmyappscompany23@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Kullanım Koşulları -->
+            <div class="terms-card">
+                <!-- Türkçe İçerik -->
+                <div class="language-content active" id="terms-tr">
+                    <h2><i class="fas fa-file-contract"></i> Kullanım Koşulları</h2>
+                    
+                    <h3><span class="section-number">1</span> Koşulları Kabul</h3>
+                    <p>Lütfen bu Kullanım Koşullarını ("Koşullar") uygulamamızı ("Uygulama") kullanmadan önce dikkatlice okuyun. Uygulamaya erişerek veya kullanarak, bu Koşullar ile bağlı olmayı kabul etmiş olursunuz.</p>
+                    
+                    <h3><span class="section-number">2</span> Uygunluk</h3>
+                    <p>Uygulamayı kullanmak için en az 6 yaşında olmalısınız. Uygulamayı kullanarak bu yaş şartını karşıladığınızı teyit edersiniz.</p>
+                    
+                    <h3><span class="section-number">3</span> Uygulamanın Kullanımı</h3>
+                    <p>Uygulama sadece eğlence amaçlıdır. Uygulamayı kötüye kullanmamayı veya yasa dışı amaçlarla kullanmamayı kabul edersiniz.</p>
+                    
+                    <h3><span class="section-number">4</span> Hesaplar</h3>
+                    <p>Belirli özellikleri kullanmak için bir kullanıcı adı ve e-posta adresi ile hesap oluşturmalısınız. Hesabınızın güvenliğini sağlamak sizin sorumluluğunuzdadır. Bu Koşulları ihlal eden hesapları askıya alma veya sonlandırma hakkımız saklıdır.</p>
+                    
+                    <h3><span class="section-number">5</span> Veri ve Gizlilik</h3>
+                    <p>Uygulamayı kullanarak Gizlilik Politikamızı kabul etmiş olursunuz. Veriler, Firebase kullanılarak güvenli bir şekilde saklanır ve yönetilir.</p>
+                    
+                    <h3><span class="section-number">6</span> Sorumluluk Sınırlaması</h3>
+                    <p>Uygulama herhangi bir garanti olmaksızın "olduğu gibi" sunulur. Uygulamanın kullanımından doğan herhangi bir hasar, kayıp veya sonuçtan sorumlu değiliz.</p>
+                    
+                    <h3><span class="section-number">7</span> Fesih</h3>
+                    <p>Bu Koşulları ihlal ederseniz veya hizmeti kötüye kullanırsanız, Uygulamaya erişiminizi askıya alma veya sonlandırma hakkımız saklıdır.</p>
+                    
+                    <h3><span class="section-number">8</span> Değişiklikler</h3>
+                    <p>Bu Koşulları istediğimiz zaman değiştirme veya güncelleme hakkımız saklıdır. Uygulamayı kullanmaya devam etmeniz, güncellenmiş Koşulları kabul ettiğiniz anlamına gelir.</p>
+                    
+                    <h3><span class="section-number">9</span> İletişim</h3>
+                    <p>Bu Koşullar hakkında sorularınız varsa, lütfen bizimle iletişime geçin: <strong>contactmyappscompany23@gmail.com</strong></p>
+                    
+                    <div class="highlight">
+                        <p><i class="fas fa-info-circle"></i> <strong>Önemli Not:</strong> Bu belgelerde belirtilen yaş sınırı 6 olarak belirlenmiştir. Uygulamanızın içeriğine bağlı olarak bu sınırın gözden geçirilmesi gerekebilir.</p>
+                    </div>
+                </div>
                 
-                <h3 class="tr">b. Otomatik Olarak Toplanan Bilgiler (Kullanım & Tanılama)</h3>
-                <h3 class="en" style="display:none;">b. Automatically Collected Information (Usage & Diagnostics)</h3>
-                <ul>
-                    <li class="tr">Kullanım Verileri: Cihaz bilgisi, etkileşimler, açılan ekranlar, işletim sistemi sürümü, cihaz tanımlayıcıları ve IP adresi.</li>
-                    <li class="en" style="display:none;">Usage Data: Device information, interactions, screens opened, OS version, device identifiers, and IP address.</li>
-                    <li class="tr">Tanılama Verileri:
-                        <ul>
-                            <li class="tr">Çökme verileri (Firebase Crashlytics)</li>
-                            <li class="en" style="display:none;">Crash data (Firebase Crashlytics)</li>
-                            <li class="tr">Performans verileri (Firebase Performance Monitoring)</li>
-                            <li class="en" style="display:none;">Performance data (Firebase Performance Monitoring)</li>
-                        </ul>
-                    </li>
-                </ul>
-                
-                <h3 class="tr">c. Üçüncü Taraflardan Alınan Bilgiler (Reklam)</h3>
-                <h3 class="en" style="display:none;">c. Information from Third Parties (Advertising)</h3>
-                <ul>
-                    <li class="tr">Reklam Verileri: Google Ads tarafından gösterilen reklamlar.</li>
-                    <li class="en" style="display:none;">Advertising Data: Ads displayed by Google Ads.</li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h2><i>🎯</i> <span class="tr">Bilgilerinizi Kullanım Amacımız</span><span class="en" style="display:none;">How We Use Your Information</span></h2>
-                <ul>
-                    <li class="tr">Uygulamayı sunmak ve sürdürmek</li>
-                    <li class="en" style="display:none;">To provide and maintain the App</li>
-                    <li class="tr">Uygulamayı geliştirmek</li>
-                    <li class="en" style="display:none;">To improve the App</li>
-                    <li class="tr">Reklam göstermek</li>
-                    <li class="en" style="display:none;">To display advertisements</li>
-                    <li class="tr">Sizinle iletişim kurmak</li>
-                    <li class="en" style="display:none;">To communicate with you</li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h2><i>⚖️</i> <span class="tr">İşleme Hukuki Dayanağı (AB Kullanıcıları İçin)</span><span class="en" style="display:none;">Legal Basis for Processing (For EU Users)</span></h2>
-                <ul>
-                    <li class="tr">Sözleşmenin ifası</li>
-                    <li class="en" style="display:none;">Performance of a contract</li>
-                    <li class="tr">Meşru menfaatler</li>
-                    <li class="en" style="display:none;">Legitimate interests</li>
-                    <li class="tr">Kişiselleştirilmiş reklam için onay</li>
-                    <li class="en" style="display:none;">Consent for personalized advertising</li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h2><i>🔗</i> <span class="tr">Bilgilerin Paylaşılması</span><span class="en" style="display:none;">Sharing of Information</span></h2>
-                <ul>
-                    <li class="tr">Hizmet Sağlayıcılar (Firebase, Google Ads)</li>
-                    <li class="en" style="display:none;">Service Providers (Firebase, Google Ads)</li>
-                    <li class="tr">Yasal zorunluluklar</li>
-                    <li class="en" style="display:none;">Legal requirements</li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h2><i>💾</i> <span class="tr">Veri Saklama</span><span class="en" style="display:none;">Data Retention</span></h2>
-                <p class="tr">Bilgilerinizi yalnızca yasal yükümlülüklerimizi yerine getirmek, uyuşmazlıkları çözmek ve politikalarımızı uygulamak için gerektiği süre boyunca saklarız.</p>
-                <p class="en" style="display:none;">We retain your information only for as long as necessary to fulfill our legal obligations, resolve disputes, and enforce our policies.</p>
-            </div>
-            
-            <div class="card">
-                <h2><i>🔒</i> <span class="tr">Veri Koruma Haklarınız</span><span class="en" style="display:none;">Your Data Protection Rights</span></h2>
-                <ul>
-                    <li class="tr">Kişiselleştirilmiş reklamları cihaz ayarlarından veya Google Reklam Ayarlarından devre dışı bırakabilirsiniz.</li>
-                    <li class="en" style="display:none;">You can disable personalized ads from device settings or Google Ads Settings.</li>
-                    <li class="tr">contactmyappscompany23@gmail.com adresinden bize ulaşarak verilerinize erişebilir veya sildirebilirsiniz.</li>
-                    <li class="en" style="display:none;">You can access or request deletion of your data by contacting us at contactmyappscompany23@gmail.com.</li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h2><i>👶</i> <span class="tr">Çocukların Gizliliği</span><span class="en" style="display:none;">Children's Privacy</span></h2>
-                <p class="tr">Uygulamamız 6 yaş üzeri kullanıcılar için uygundur.</p>
-                <p class="en" style="display:none;">Our App is intended for users aged 6 above.</p>
-            </div>
-            
-            <div class="card">
-                <h2><i>🌐</i> <span class="tr">Uluslararası Aktarımlar</span><span class="en" style="display:none;">International Transfers</span></h2>
-                <p class="tr">Bilgileriniz, ülkeniz dışındaki sunuculara aktarılabilir. Uygun güvenlik önlemleri alınmaktadır.</p>
-                <p class="en" style="display:none;">Your information may be transferred to servers outside your country. Appropriate security measures are taken.</p>
-            </div>
-            
-            <div class="card">
-                <h2><i>🛒</i> <span class="tr">Uygulama İçi Satın Alımlar ve İade Politikası</span><span class="en" style="display:none;">In-App Purchases and Refund Policy</span></h2>
-                <p class="tr">Uygulamamız tüketilebilir uygulama içi satın alımlar sunmaktadır. Bu satın alımlar Google Play veya Apple App Store üzerinden güvenli bir şekilde gerçekleştirilir. Tüketilebilir uygulama içi satın alımlar iade edilmez, yasal zorunluluklar veya ilgili mağazaların politikaları dışında.</p>
-                <p class="en" style="display:none;">Our App offers consumable in-app purchases. These purchases are made securely through Google Play or Apple App Store. Consumable in-app purchases are non-refundable, except where required by law or the policies of the respective stores.</p>
-            </div>
-            
-            <div class="card">
-                <h2><i>👤</i> <span class="tr">Misafir Hesaplar</span><span class="en" style="display:none;">Guest Accounts</span></h2>
-                <p class="tr">Uygulamayı hesap oluşturmadan misafir olarak kullanabilirsiniz. Ancak misafir olarak uygulama içi satın alma yaparsanız bu satın alımlar cihazınıza bağlı olabilir ve başka bir cihaza aktarılamayabilir. Satın alımlarınızın güvenliği için uygulama içi satın alma yapmadan önce bir hesap oluşturmanızı önemle tavsiye ederiz.</p>
-                <p class="en" style="display:none;">You can use the App as a guest without creating an account. However, if you make in-app purchases as a guest, these purchases may be tied to your device and cannot be transferred to another device. We strongly recommend creating an account before making in-app purchases for the security of your purchases.</p>
-            </div>
-            
-            <div class="card">
-                <h2><i>📝</i> <span class="tr">Gizlilik Politikasındaki Değişiklikler</span><span class="en" style="display:none;">Changes to This Privacy Policy</span></h2>
-                <p class="tr">Bu Gizlilik Politikası'nı güncelleyebiliriz. Güncellenmiş hâli bu sayfada, yeni yürürlük tarihiyle birlikte yayımlanacaktır.</p>
-                <p class="en" style="display:none;">We may update this Privacy Policy. The updated version will be posted on this page with the new effective date.</p>
-            </div>
-            
-            <div class="card">
-                <h2><i>📞</i> <span class="tr">İletişim</span><span class="en" style="display:none;">Contact Us</span></h2>
-                <p class="tr">Sorularınız için bizimle iletişime geçebilirsiniz: contactmyappscompany23@gmail.com</p>
-                <p class="en" style="display:none;">You can contact us with questions at: contactmyappscompany23@gmail.com</p>
+                <!-- İngilizce İçerik -->
+                <div class="language-content" id="terms-en">
+                    <h2><i class="fas fa-file-contract"></i> Terms of Service</h2>
+                    
+                    <h3><span class="section-number">1</span> Acceptance of Terms</h3>
+                    <p>Please read these Terms of Service ("Terms") carefully before using our application ("the App"). By accessing or using the App, you agree to be bound by these Terms.</p>
+                    
+                    <h3><span class="section-number">2</span> Eligibility</h3>
+                    <p>You must be at least 6 years old to use the App. By using the App, you confirm that you meet this age requirement.</p>
+                    
+                    <h3><span class="section-number">3</span> Use of the App</h3>
+                    <p>The App is for entertainment purposes only. You agree not to misuse the App or use it for illegal purposes.</p>
+                    
+                    <h3><span class="section-number">4</span> Accounts</h3>
+                    <p>To use certain features, you must create an account with a username and email address. You are responsible for keeping your account secure. We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+                    
+                    <h3><span class="section-number">5</span> Data and Privacy</h3>
+                    <p>By using the App, you agree to our Privacy Policy. Data is stored and managed securely using Firebase.</p>
+                    
+                    <h3><span class="section-number">6</span> Limitation of Liability</h3>
+                    <p>The App is provided "as is" without any warranties. We are not responsible for any damages, losses, or consequences resulting from the use of the App.</p>
+                    
+                    <h3><span class="section-number">7</span> Termination</h3>
+                    <p>We may suspend or terminate your access to the App if you violate these Terms or misuse the service.</p>
+                    
+                    <h3><span class="section-number">8</span> Changes</h3>
+                    <p>We reserve the right to modify or update these Terms at any time. Continued use of the App constitutes acceptance of the updated Terms.</p>
+                    
+                    <h3><span class="section-number">9</span> Contact</h3>
+                    <p>If you have any questions about these Terms, please contact us at: <strong>contactmyappscompany23@gmail.com</strong></p>
+                    
+                    <div class="highlight">
+                        <p><i class="fas fa-info-circle"></i> <strong>Important Note:</strong> The age limit specified in these documents is set to 6. Depending on your app's content, this limit may need to be reviewed.</p>
+                    </div>
+                </div>
             </div>
         </div>
         
         <footer>
-            <p>© 2025 Twogether. All rights reserved.</p>
+            <p>© 2025 Twogether. Tüm hakları saklıdır. | All rights reserved.</p>
         </footer>
+        
+        <div class="back-to-top" id="backToTop">
+            <i class="fas fa-chevron-up"></i>
+        </div>
     </div>
 
     <script>
+        // Dil değiştirme işlevi
         document.addEventListener('DOMContentLoaded', function() {
-            const languageSwitch = document.getElementById('languageSwitch');
-            let isEnglish = false;
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const policyContents = document.querySelectorAll('#policy-tr, #policy-en');
+            const termsContents = document.querySelectorAll('#terms-tr, #terms-en');
             
-            languageSwitch.addEventListener('click', function() {
-                isEnglish = !isEnglish;
-                
-                // Güncelleme buton metni
-                languageSwitch.innerHTML = isEnglish ? 
-                    '<span>TR</span>' : 
-                    '<span>EN</span>';
-                
-                // Güncelleme sayfa başlığı
-                document.getElementById('pageTitle').textContent = isEnglish ? 
-                    'Privacy Policy' : 
-                    'Gizlilik Politikası';
-                
-                // Tüm Türkçe ve İngilizce öğeleri seç
-                const trElements = document.querySelectorAll('.tr');
-                const enElements = document.querySelectorAll('.en');
-                
-                // Dil değiştirme
-                if (isEnglish) {
-                    trElements.forEach(el => el.style.display = 'none');
-                    enElements.forEach(el => el.style.display = 'block');
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Butonları güncelle
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // İçerikleri güncelle
+                    if (lang === 'tr') {
+                        document.getElementById('policy-tr').classList.add('active');
+                        document.getElementById('policy-en').classList.remove('active');
+                        document.getElementById('terms-tr').classList.add('active');
+                        document.getElementById('terms-en').classList.remove('active');
+                    } else {
+                        document.getElementById('policy-tr').classList.remove('active');
+                        document.getElementById('policy-en').classList.add('active');
+                        document.getElementById('terms-tr').classList.remove('active');
+                        document.getElementById('terms-en').classList.add('active');
+                    }
+                });
+            });
+            
+            // Yukarı çık butonu
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
                 } else {
-                    trElements.forEach(el => el.style.display = 'block');
-                    enElements.forEach(el => el.style.display = 'none');
+                    backToTopButton.classList.remove('show');
                 }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
