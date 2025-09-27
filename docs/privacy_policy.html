@@ -14,26 +14,28 @@
       --text-color: #333;
       --heading-color: #4a90e2;
     }
-    * {box-sizing: border-box;margin:0;padding:0;}
-    body {font-family:'Inter',sans-serif;background-color:var(--bg-color);color:var(--text-color);line-height:1.7;overflow-x:hidden;}
-    header {background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));color:white;text-align:center;padding:3rem 1rem;clip-path:polygon(0 0, 100% 0, 100% 85%, 0 100%);position:relative;}
-    .language-switch {position:absolute;top:1rem;left:1rem;background:white;color:var(--primary-color);border:none;padding:0.4rem 0.6rem;border-radius:6px;font-size:0.9rem;font-weight:600;cursor:pointer;}
-    header h1 {font-size:2.2rem;font-weight:700;margin-bottom:0.5rem;}
-    header p {font-size:1rem;opacity:0.9;}
-    main {max-width:900px;margin:-4rem auto 2rem auto;padding:1rem;}
-    .card {background-color:var(--card-bg);border-radius:12px;padding:2rem;margin-bottom:2rem;box-shadow:0 10px 25px rgba(0,0,0,0.08);}
-    h2 {color:var(--heading-color);font-weight:600;margin-bottom:1rem;font-size:1.5rem;border-left:4px solid var(--secondary-color);padding-left:0.8rem;}
-    h3 {color:var(--primary-color);margin-top:1rem;margin-bottom:0.5rem;}
-    p, li {margin-bottom:0.6rem;}
-    ul {padding-left:1.2rem;margin-bottom:0.6rem;}
-    footer {text-align:center;padding:2rem 1rem;font-size:0.9rem;color:#777;}
-    a {color:var(--primary-color);text-decoration:none;font-weight:500;}
-    a:hover {text-decoration:underline;}
-    .hidden {display:none;}
-    @media (max-width:600px){header h1{font-size:1.6rem;}main{margin:-3rem 1rem 2rem 1rem;}}
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; }
+    header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; text-align: center; padding: 4rem 1rem 2rem 1rem; position: relative; }
+    .language-switch { position: absolute; top: 1rem; left: 1rem; background: white; color: var(--primary-color); border: none; padding: 0.4rem 0.6rem; border-radius: 6px; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+    header h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    header p { font-size: 1rem; opacity: 0.9; }
+    main { max-width: 900px; margin: 2rem auto; padding: 1rem; }
+    .card { background-color: var(--card-bg); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+    h2 { color: var(--heading-color); font-weight: 600; margin-bottom: 1rem; font-size: 1.5rem; border-left: 4px solid var(--secondary-color); padding-left: 0.8rem; }
+    h3 { color: var(--primary-color); margin-top: 1rem; margin-bottom: 0.5rem; }
+    p, li { margin-bottom: 0.6rem; }
+    ul { padding-left: 1.2rem; margin-bottom: 0.6rem; }
+    footer { text-align: center; padding: 2rem 1rem; font-size: 0.9rem; color: #777; }
+    a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    .hidden { display: none; }
+    @media (max-width:600px) { header h1 { font-size: 1.6rem; } main { margin: 2rem 1rem; } }
   </style>
 </head>
 <body>
+
   <header>
     <button class="language-switch" onclick="toggleLanguage()">EN</button>
     <h1 id="title-en">Privacy Policy</h1>
@@ -226,3 +228,37 @@
 
   <footer>
     &copy; 2025 Twogether. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleLanguage() {
+      const enDiv = document.getElementById('en');
+      const trDiv = document.getElementById('tr');
+      const btn = document.querySelector('.language-switch');
+      const titleEn = document.getElementById('title-en');
+      const titleTr = document.getElementById('title-tr');
+      const subEn = document.getElementById('subtitle-en');
+      const subTr = document.getElementById('subtitle-tr');
+
+      if(enDiv.classList.contains('hidden')) {
+        enDiv.classList.remove('hidden');
+        trDiv.classList.add('hidden');
+        titleEn.classList.remove('hidden');
+        titleTr.classList.add('hidden');
+        subEn.classList.remove('hidden');
+        subTr.classList.add('hidden');
+        btn.textContent = 'TR';
+      } else {
+        enDiv.classList.add('hidden');
+        trDiv.classList.remove('hidden');
+        titleEn.classList.add('hidden');
+        titleTr.classList.remove('hidden');
+        subEn.classList.add('hidden');
+        subTr.classList.remove('hidden');
+        btn.textContent = 'EN';
+      }
+    }
+  </script>
+
+</body>
+</html>
