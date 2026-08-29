@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2Twogether - Gizlilik Politikası ve Kullanım Koşulları</title>
+    <title>Twogether - Gizlilik Politikası ve Kullanım Koşulları</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -231,6 +231,7 @@
             margin-right: 10px;
             font-size: 14px;
             font-weight: bold;
+            flex-shrink: 0;
         }
         
         .back-to-top {
@@ -304,12 +305,12 @@
                     <ul>
                         <li><strong>Hesap Bilgileri:</strong> E-posta, kullanıcı adı ve parola (Firebase Authentication).</li>
                         <li><strong>Kullanıcı İçeriği:</strong> Uygulama içinde oluşturduğunuz içerikler.</li>
-                        <li><strong>Satın Alma Geçmişi:</strong> Google Cloud Firestore aracılığıyla bağlanan uygulama içi satın alma verileri.</li>
+                        <li><strong>Satın Alma ve Abonelik Verileri:</strong> Google Cloud Firestore ve RevenueCat aracılığıyla bağlanan abonelik durumu ve uygulama içi satın alma verileri. Ödeme bilgileriniz (kredi kartı vb.) tarafımızca tutulmaz; doğrudan Apple veya Google tarafından işlenir.</li>
                     </ul>
                     
                     <h4>b. Otomatik Olarak Toplanan Bilgiler (Kullanım & Tanılama)</h4>
                     <ul>
-                        <li><strong>Kullanım Verileri:</strong> Cihaz bilgisi, etkileşimler, açılan ekranlar, işletim sistemi sürümü, cihaz tanımlayıcıları ve IP adresi.</li>
+                        <li><strong>Kullanım Verileri:</strong> Cihaz bilgisi, etkileşimler, açılan ekranlar, işletim sistemi sürümü, cihaz tanımlayıcıları (App User ID) ve IP adresi.</li>
                         <li><strong>Tanılama Verileri:</strong>
                             <ul>
                                 <li>Çökme verileri (Firebase Crashlytics)</li>
@@ -320,15 +321,16 @@
                     
                     <h4>c. Üçüncü Taraflardan Alınan Bilgiler (Reklam)</h4>
                     <ul>
-                        <li><strong>Reklam Verileri:</strong> Google Ads tarafından gösterilen reklamlar.</li>
+                        <li><strong>Reklam Verileri:</strong> Google Ads tarafından gösterilen reklamlar için kullanılan anonim kimlikler.</li>
                     </ul>
                     
                     <h3><span class="section-number">2</span> Bilgilerinizi Kullanım Amacımız</h3>
                     <ul>
-                        <li>Uygulamayı sunmak ve sürdürmek</li>
-                        <li>Uygulamayı geliştirmek</li>
+                        <li>Uygulamayı sunmak, kişiselleştirmek ve sürdürmek</li>
+                        <li>Uygulama içi satın alımları ve abonelikleri işlemek (RevenueCat aracılığıyla)</li>
+                        <li>Uygulamayı geliştirmek ve hataları gidermek</li>
                         <li>Reklam göstermek</li>
-                        <li>Sizinle iletişim kurmak</li>
+                        <li>Sizinle hesap veya destek amacıyla iletişim kurmak</li>
                     </ul>
                     
                     <h3><span class="section-number">3</span> İşleme Hukuki Dayanağı (AB Kullanıcıları İçin)</h3>
@@ -340,8 +342,8 @@
                     
                     <h3><span class="section-number">4</span> Bilgilerin Paylaşılması</h3>
                     <ul>
-                        <li>Hizmet Sağlayıcılar (Firebase, Google Ads)</li>
-                        <li>Yasal zorunluluklar</li>
+                        <li><strong>Hizmet Sağlayıcılar:</strong> Firebase (Veritabanı ve Kimlik Doğrulama), RevenueCat (Abonelik ve Satın Alma Yönetimi), Google Ads (Reklam Ağı).</li>
+                        <li><strong>Yasal Zorunluluklar:</strong> Kanunların gerektirdiği durumlarda resmi makamlarla paylaşım.</li>
                     </ul>
                     
                     <h3><span class="section-number">5</span> Veri Saklama</h3>
@@ -360,14 +362,14 @@
                     <h3><span class="section-number">8</span> Uluslararası Aktarımlar</h3>
                     <p>Bilgileriniz, ülkeniz dışındaki sunuculara aktarılabilir. Uygun güvenlik önlemleri alınmaktadır.</p>
                     
-                    <h3><span class="section-number">9</span> Uygulama İçi Satın Alımlar ve İade Politikası</h3>
-                    <p>Uygulamamız tüketilebilir uygulama içi satın alımlar sunmaktadır. Bu satın alımlar Google Play veya Apple App Store üzerinden güvenli bir şekilde gerçekleştirilir. Tüketilebilir uygulama içi satın alımlar iade edilmez, yasal zorunluluklar veya ilgili mağazaların politikaları dışında.</p>
+                    <h3><span class="section-number">9</span> Uygulama İçi Satın Alımlar ve Abonelikler</h3>
+                    <p>Uygulamamız premium özellikler için uygulama içi satın alımlar ve otomatik yenilenen abonelikler sunmaktadır. Bu işlemler Apple App Store veya Google Play Store üzerinden RevenueCat altyapısı kullanılarak güvenli bir şekilde gerçekleştirilir. Tarafımızca hiçbir finansal veri saklanmaz.</p>
                     
                     <h3><span class="section-number">10</span> Misafir Hesaplar</h3>
-                    <p>Uygulamayı hesap oluşturmadan misafir olarak kullanabilirsiniz. Ancak misafir olarak uygulama içi satın alma yaparsanız bu satın alımlar cihazınıza bağlı olabilir ve başka bir cihaza aktarılamayabilir. Satın alımlarınızın güvenliği için uygulama içi satın alma yapmadan önce bir hesap oluşturmanızı önemle tavsiye ederiz.</p>
+                    <p>Uygulamayı hesap oluşturmadan misafir olarak kullanabilirsiniz. Ancak misafir olarak abonelik başlatır veya satın alma yaparsanız bu haklar cihazınıza bağlı olabilir. Satın alımlarınızın güvenliği ve farklı cihazlarda (cross-platform) kullanılabilmesi için bir hesap oluşturmanızı önemle tavsiye ederiz.</p>
                     
                     <h3><span class="section-number">11</span> Bu Gizlilik Politikasındaki Değişiklikler</h3>
-                    <p>Bu Gizlilik Politikası'nı güncelleyebiliriz. Güncellenmiş hâli bu sayfada, yeni yürürlük tarihiyle birlikte yayımlanacaktır.</p>
+                    <p>Bu Gizlilik Politikası'nı güncelleyebiliriz. Güncellenmiş hâli bu sayfada yayımlanacaktır.</p>
                     
                     <div class="contact-info">
                         <h3><i class="fas fa-envelope"></i> İletişim</h3>
@@ -391,12 +393,12 @@
                     <ul>
                         <li><strong>Account Information:</strong> Email, username, and password (Firebase Authentication).</li>
                         <li><strong>User Content:</strong> Content you create within the App.</li>
-                        <li><strong>Purchase History:</strong> In-app purchase data linked via Google Cloud Firestore.</li>
+                        <li><strong>Purchase and Subscription Data:</strong> In-app purchase and subscription status data linked via Google Cloud Firestore and RevenueCat. Your payment details (credit card, etc.) are not stored by us; they are processed directly by Apple or Google.</li>
                     </ul>
                     
                     <h4>b. Automatically Collected Information (Usage & Diagnostics)</h4>
                     <ul>
-                        <li><strong>Usage Data:</strong> Device information, interactions, screens opened, operating system version, device identifiers, and IP address.</li>
+                        <li><strong>Usage Data:</strong> Device information, interactions, screens opened, operating system version, device identifiers (App User ID), and IP address.</li>
                         <li><strong>Diagnostic Data:</strong>
                             <ul>
                                 <li>Crash data (Firebase Crashlytics)</li>
@@ -407,15 +409,16 @@
                     
                     <h4>c. Information from Third Parties (Advertising)</h4>
                     <ul>
-                        <li><strong>Advertising Data:</strong> Ads displayed by Google Ads.</li>
+                        <li><strong>Advertising Data:</strong> Anonymous IDs used for ads displayed by Google Ads.</li>
                     </ul>
                     
                     <h3><span class="section-number">2</span> How We Use Your Information</h3>
                     <ul>
-                        <li>To provide and maintain the App</li>
-                        <li>To improve the App</li>
+                        <li>To provide, personalize and maintain the App</li>
+                        <li>To process in-app purchases and subscriptions (via RevenueCat)</li>
+                        <li>To improve the App and fix bugs</li>
                         <li>To display advertisements</li>
-                        <li>To communicate with you</li>
+                        <li>To communicate with you for account or support purposes</li>
                     </ul>
                     
                     <h3><span class="section-number">3</span> Legal Basis for Processing (For EU Users)</h3>
@@ -427,8 +430,8 @@
                     
                     <h3><span class="section-number">4</span> Sharing of Information</h3>
                     <ul>
-                        <li>Service Providers (Firebase, Google Ads)</li>
-                        <li>Legal requirements</li>
+                        <li><strong>Service Providers:</strong> Firebase (Database & Auth), RevenueCat (Subscription & Purchase Management), Google Ads (Ad Network).</li>
+                        <li><strong>Legal requirements:</strong> Sharing with authorities when required by law.</li>
                     </ul>
                     
                     <h3><span class="section-number">5</span> Data Retention</h3>
@@ -447,14 +450,14 @@
                     <h3><span class="section-number">8</span> International Transfers</h3>
                     <p>Your information may be transferred to servers located outside your country. Appropriate security measures are taken.</p>
                     
-                    <h3><span class="section-number">9</span> In-App Purchases and Refund Policy</h3>
-                    <p>Our App offers consumable in-app purchases. These purchases are made securely through Google Play or Apple App Store. Consumable in-app purchases are non-refundable, except as required by law or the policies of the respective stores.</p>
+                    <h3><span class="section-number">9</span> In-App Purchases and Subscriptions</h3>
+                    <p>Our App offers in-app purchases and auto-renewing subscriptions for premium features. These transactions are securely processed through the Apple App Store or Google Play Store using the RevenueCat infrastructure. We do not store any financial data.</p>
                     
                     <h3><span class="section-number">10</span> Guest Accounts</h3>
-                    <p>You can use the App as a guest without creating an account. However, if you make in-app purchases as a guest, these purchases may be tied to your device and may not be transferable to another device. For the security of your purchases, we strongly recommend creating an account before making in-app purchases.</p>
+                    <p>You can use the App as a guest without creating an account. However, if you subscribe or make purchases as a guest, these rights may be tied to your device. For the security of your purchases and cross-platform availability, we strongly recommend creating an account.</p>
                     
                     <h3><span class="section-number">11</span> Changes to this Privacy Policy</h3>
-                    <p>We may update this Privacy Policy. The updated version will be posted on this page with the new effective date.</p>
+                    <p>We may update this Privacy Policy. The updated version will be posted on this page.</p>
                     
                     <div class="contact-info">
                         <h3><i class="fas fa-envelope"></i> Contact</h3>
@@ -476,29 +479,44 @@
                     <h3><span class="section-number">2</span> Uygunluk</h3>
                     <p>Uygulamayı kullanmak için en az 6 yaşında olmalısınız. Uygulamayı kullanarak bu yaş şartını karşıladığınızı teyit edersiniz.</p>
                     
-                    <h3><span class="section-number">3</span> Uygulamanın Kullanımı</h3>
-                    <p>Uygulama sadece eğlence amaçlıdır. Uygulamayı kötüye kullanmamayı veya yasa dışı amaçlarla kullanmamayı kabul edersiniz.</p>
+                    <h3><span class="section-number">3</span> Uygulamanın Kullanımı ve Davranış Kuralları</h3>
+                    <p>Uygulama eğlence amaçlıdır. Uygulamayı kullanırken yasa dışı, tehditkar, küfürlü, taciz edici, iftira niteliğinde, nefret söylemi içeren veya başkalarının haklarını (fikri mülkiyet hakları dahil) ihlal eden hiçbir içerik oluşturmamayı, paylaşmamayı veya bu tür eylemlerde bulunmamayı kabul edersiniz. Kullanıcıların oluşturduğu içeriklerden Twogether geliştiricileri sorumlu tutulamaz.</p>
                     
                     <h3><span class="section-number">4</span> Hesaplar</h3>
-                    <p>Belirli özellikleri kullanmak için bir kullanıcı adı ve e-posta adresi ile hesap oluşturmalısınız. Hesabınızın güvenliğini sağlamak sizin sorumluluğunuzdadır. Bu Koşulları ihlal eden hesapları askıya alma veya sonlandırma hakkımız saklıdır.</p>
+                    <p>Belirli özellikleri kullanmak için bir hesap oluşturmalısınız. Hesabınızın güvenliğini sağlamak sizin sorumluluğunuzdadır. Bu Koşulları ihlal eden hesapları önceden haber vermeksizin askıya alma veya sonlandırma hakkımız saklıdır.</p>
                     
-                    <h3><span class="section-number">5</span> Veri ve Gizlilik</h3>
-                    <p>Uygulamayı kullanarak Gizlilik Politikamızı kabul etmiş olursunuz. Veriler, Firebase kullanılarak güvenli bir şekilde saklanır ve yönetilir.</p>
+                    <h3><span class="section-number">5</span> Abonelikler, Otomatik Yenileme ve İptal</h3>
+                    <p>Uygulama, premium özelliklere erişim için <strong>otomatik yenilenen abonelikler (auto-renewable subscriptions)</strong> sunar. Abonelik sistemi RevenueCat aracılığıyla yönetilmektedir.</p>
+                    <ul>
+                        <li><strong>Ödeme:</strong> Satın alma onayı ile birlikte ödeme, Apple ID veya Google Play hesabınızdan tahsil edilecektir.</li>
+                        <li><strong>Otomatik Yenileme:</strong> Mevcut abonelik döneminin bitiminden en az 24 saat önce otomatik yenileme kapatılmadığı sürece aboneliğiniz aynı fiyat ve süre ile otomatik olarak yenilenir.</li>
+                        <li><strong>İptal ve Yönetim:</strong> Aboneliklerinizi yönetmek ve otomatik yenilemeyi kapatmak için satın alma işleminden sonra Apple App Store veya Google Play Store hesap ayarlarınıza gitmeniz gerekmektedir. Uygulama silindiğinde abonelik iptal edilmez.</li>
+                        <li><strong>İadeler:</strong> Apple ve Google politikaları gereği iade süreçleri doğrudan mağazalar tarafından yönetilir. Bizim doğrudan iade yapma yetkimiz bulunmamaktadır. Kullanılmayan dönemler için kısmi iade yapılmaz.</li>
+                    </ul>
+
+                    <h3><span class="section-number">6</span> Fiyat Değişiklikleri</h3>
+                    <p>Abonelik ve ürün fiyatlarını dilediğimiz zaman değiştirme hakkımız saklıdır. Fiyat değişiklikleri, ilgili mağaza politikalarına uygun olarak kullanıcılara bildirilecek ve onaylanmadığı takdirde abonelikler yenilenmeyecektir.</p>
                     
-                    <h3><span class="section-number">6</span> Sorumluluk Sınırlaması</h3>
-                    <p>Uygulama herhangi bir garanti olmaksızın "olduğu gibi" sunulur. Uygulamanın kullanımından doğan herhangi bir hasar, kayıp veya sonuçtan sorumlu değiliz.</p>
+                    <h3><span class="section-number">7</span> Veri ve Gizlilik</h3>
+                    <p>Uygulamayı kullanarak Gizlilik Politikamızı kabul etmiş olursunuz. Veriler, Firebase kullanılarak güvenli bir şekilde saklanır.</p>
                     
-                    <h3><span class="section-number">7</span> Fesih</h3>
+                    <h3><span class="section-number">8</span> Sorumluluk Sınırlaması ve Garanti Reddi</h3>
+                    <p>Uygulama, herhangi bir açık veya zımni garanti olmaksızın "OLDUĞU GİBİ" ve "MEVCUT OLDUĞU ŞEKİLDE" sunulur. Uygulamanın kesintisiz, hatasız veya %100 güvenli olacağını garanti etmiyoruz. Uygulamanın kullanımından doğan veri kaybı, cihaz hasarı veya herhangi bir dolaylı/doğrudan zarardan hukuken izin verilen en geniş ölçüde sorumlu değiliz.</p>
+                    
+                    <h3><span class="section-number">9</span> Tazminat (Indemnification)</h3>
+                    <p>Uygulamayı kullanımınızdan, bu koşulları ihlal etmenizden veya üçüncü bir tarafın haklarını ihlal etmenizden kaynaklanabilecek her türlü yasal iddia, dava, talep, zarar veya masraflara (avukatlık ücretleri dahil) karşı bizi (Twogether ve geliştiricilerini) tazmin etmeyi ve zarar görmememizi sağlamayı kabul edersiniz.</p>
+
+                    <h3><span class="section-number">10</span> Fesih</h3>
                     <p>Bu Koşulları ihlal ederseniz veya hizmeti kötüye kullanırsanız, Uygulamaya erişiminizi askıya alma veya sonlandırma hakkımız saklıdır.</p>
                     
-                    <h3><span class="section-number">8</span> Değişiklikler</h3>
+                    <h3><span class="section-number">11</span> Değişiklikler</h3>
                     <p>Bu Koşulları istediğimiz zaman değiştirme veya güncelleme hakkımız saklıdır. Uygulamayı kullanmaya devam etmeniz, güncellenmiş Koşulları kabul ettiğiniz anlamına gelir.</p>
                     
-                    <h3><span class="section-number">9</span> İletişim</h3>
+                    <h3><span class="section-number">12</span> İletişim</h3>
                     <p>Bu Koşullar hakkında sorularınız varsa, lütfen bizimle iletişime geçin: <strong>contactmyappscompany23@gmail.com</strong></p>
                     
                     <div class="highlight">
-                        <p><i class="fas fa-info-circle"></i> <strong>Önemli Not:</strong> Bu belgelerde belirtilen yaş sınırı 6 olarak belirlenmiştir. Uygulamanızın içeriğine bağlı olarak bu sınırın gözden geçirilmesi gerekebilir.</p>
+                        <p><i class="fas fa-info-circle"></i> <strong>Önemli Not:</strong> Bu belgelerde belirtilen yaş sınırı 6 olarak belirlenmiştir. Uygulamanızın içeriğine bağlı olarak (örneğin çiftlere yönelik romantik içerikler barındırıyorsa) bu sınırın ilgili mağaza kurallarına göre (örn: 12+ veya 16+) gözden geçirilmesi gerekebilir.</p>
                     </div>
                 </div>
                 
@@ -512,36 +530,51 @@
                     <h3><span class="section-number">2</span> Eligibility</h3>
                     <p>You must be at least 6 years old to use the App. By using the App, you confirm that you meet this age requirement.</p>
                     
-                    <h3><span class="section-number">3</span> Use of the App</h3>
-                    <p>The App is for entertainment purposes only. You agree not to misuse the App or use it for illegal purposes.</p>
+                    <h3><span class="section-number">3</span> Use of the App and Conduct</h3>
+                    <p>The App is for entertainment purposes. You agree not to create, share, or engage in any content that is illegal, threatening, abusive, harassing, defamatory, hateful, or infringes on the rights of others (including intellectual property rights). Twogether developers cannot be held responsible for user-generated content.</p>
                     
                     <h3><span class="section-number">4</span> Accounts</h3>
-                    <p>To use certain features, you must create an account with a username and email address. You are responsible for keeping your account secure. We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+                    <p>To use certain features, you must create an account. You are responsible for keeping your account secure. We reserve the right to suspend or terminate accounts that violate these Terms without prior notice.</p>
                     
-                    <h3><span class="section-number">5</span> Data and Privacy</h3>
-                    <p>By using the App, you agree to our Privacy Policy. Data is stored and managed securely using Firebase.</p>
+                    <h3><span class="section-number">5</span> Subscriptions, Auto-Renewal, and Cancellation</h3>
+                    <p>The App offers <strong>auto-renewable subscriptions</strong> for access to premium features. The subscription system is managed via RevenueCat.</p>
+                    <ul>
+                        <li><strong>Payment:</strong> Payment will be charged to your Apple ID or Google Play account at confirmation of purchase.</li>
+                        <li><strong>Auto-Renewal:</strong> Subscription automatically renews for the same price and duration period unless auto-renew is turned off at least 24 hours before the end of the current period.</li>
+                        <li><strong>Cancellation & Management:</strong> You can manage your subscriptions and turn off auto-renewal by going to your Apple App Store or Google Play Store Account Settings after purchase. Deleting the App does not cancel the subscription.</li>
+                        <li><strong>Refunds:</strong> Per Apple and Google policies, refunds are handled directly by the stores. We do not have the ability to grant refunds directly. No partial refunds are given for unused periods.</li>
+                    </ul>
+
+                    <h3><span class="section-number">6</span> Pricing Changes</h3>
+                    <p>We reserve the right to change subscription and product prices at any time. Price changes will be communicated to users in accordance with store policies, and subscriptions will not renew if the new price is not accepted.</p>
                     
-                    <h3><span class="section-number">6</span> Limitation of Liability</h3>
-                    <p>The App is provided "as is" without any warranties. We are not responsible for any damages, losses, or consequences resulting from the use of the App.</p>
+                    <h3><span class="section-number">7</span> Data and Privacy</h3>
+                    <p>By using the App, you agree to our Privacy Policy. Data is stored securely using Firebase.</p>
                     
-                    <h3><span class="section-number">7</span> Termination</h3>
+                    <h3><span class="section-number">8</span> Limitation of Liability & Disclaimer of Warranties</h3>
+                    <p>The App is provided on an "AS IS" and "AS AVAILABLE" basis without any warranties, express or implied. We do not guarantee that the App will be uninterrupted, error-free, or 100% secure. To the fullest extent permitted by law, we are not responsible for any direct, indirect, incidental, or consequential damages (including data loss or device damage) resulting from the use of the App.</p>
+
+                    <h3><span class="section-number">9</span> Indemnification</h3>
+                    <p>You agree to indemnify, defend, and hold harmless us (Twogether and its developers) from any legal claims, suits, demands, damages, or expenses (including attorney's fees) arising out of your use of the App, your violation of these Terms, or your violation of any rights of a third party.</p>
+                    
+                    <h3><span class="section-number">10</span> Termination</h3>
                     <p>We may suspend or terminate your access to the App if you violate these Terms or misuse the service.</p>
                     
-                    <h3><span class="section-number">8</span> Changes</h3>
+                    <h3><span class="section-number">11</span> Changes</h3>
                     <p>We reserve the right to modify or update these Terms at any time. Continued use of the App constitutes acceptance of the updated Terms.</p>
                     
-                    <h3><span class="section-number">9</span> Contact</h3>
+                    <h3><span class="section-number">12</span> Contact</h3>
                     <p>If you have any questions about these Terms, please contact us at: <strong>contactmyappscompany23@gmail.com</strong></p>
                     
                     <div class="highlight">
-                        <p><i class="fas fa-info-circle"></i> <strong>Important Note:</strong> The age limit specified in these documents is set to 6. Depending on your app's content, this limit may need to be reviewed.</p>
+                        <p><i class="fas fa-info-circle"></i> <strong>Important Note:</strong> The age limit specified in these documents is set to 6. Depending on your app's content (e.g., if it contains romantic elements for couples), this limit may need to be reviewed according to the relevant store guidelines (e.g., 12+ or 16+).</p>
                     </div>
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>© 2025 Twogether. Tüm hakları saklıdır. | All rights reserved.</p>
+            <p>© 2026 Twogether. Tüm hakları saklıdır. | All rights reserved.</p>
         </footer>
         
         <div class="back-to-top" id="backToTop">
